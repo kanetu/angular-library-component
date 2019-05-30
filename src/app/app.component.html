@@ -1,0 +1,27 @@
+<div class="container">
+  <app-header
+  [logoUrl]="logoUrl"
+  [avatarUrl]="avatarUrl"
+  [menuNavbar]="menuNavbar"
+  >
+  </app-header>
+
+  <div class="row">
+
+    <div class="col-3">
+      <app-left-sidebar
+      [menuSidebar]="menuSidebar"
+      >
+      </app-left-sidebar>
+    </div>
+
+    <div class="col-9">
+        <app-login></app-login>
+    </div>
+
+  </div>
+  <app-footer></app-footer>
+</div>
+
+
+

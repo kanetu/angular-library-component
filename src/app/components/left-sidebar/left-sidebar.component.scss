@@ -1,0 +1,12 @@
+.left-sidebar{
+  background: #e9ecef;
+  border-radius: 10px;
+  padding: 10px 0px;
+  a.nav-link {
+    color: #000 ;
+  }
+  a.nav-link:hover{
+    background: rgba(0,0,0,.5);
+    color: #fff;
+  }
+}
