@@ -1,0 +1,21 @@
+{
+  "name": "kanetu",
+  "version": "0.0.7",
+  "peerDependencies": {
+    "@angular/common": "^8.0.0",
+    "@angular/core": "^8.0.0"
+  },
+  "main": "bundles/kanetu.umd.js",
+  "module": "fesm5/kanetu.js",
+  "es2015": "fesm2015/kanetu.js",
+  "esm5": "esm5/kanetu.js",
+  "esm2015": "esm2015/kanetu.js",
+  "fesm5": "fesm5/kanetu.js",
+  "fesm2015": "fesm2015/kanetu.js",
+  "typings": "kanetu.d.ts",
+  "metadata": "kanetu.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}

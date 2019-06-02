@@ -17,6 +17,22 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "kanetu": [
+        "dist/kanetu",
+        "dist/kanetu"
+      ],
+      "kanetu/*": [
+        "dist/kanetu/*",
+        "dist/kanetu/*"
+      ],
+      "hieu": [
+        "dist/hieu"
+      ],
+      "hieu/*": [
+        "dist/hieu/*"
+      ]
+    }
   }
 }

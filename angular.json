@@ -122,6 +122,42 @@
           }
         }
       }
-    }},
+    },
+    "kanetu": {
+      "projectType": "library",
+      "root": "projects/kanetu",
+      "sourceRoot": "projects/kanetu/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/kanetu/tsconfig.lib.json",
+            "project": "projects/kanetu/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/kanetu/src/test.ts",
+            "tsConfig": "projects/kanetu/tsconfig.spec.json",
+            "karmaConfig": "projects/kanetu/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/kanetu/tsconfig.lib.json",
+              "projects/kanetu/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
   "defaultProject": "angular-demo"
 }
