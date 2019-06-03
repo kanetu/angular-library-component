@@ -6,6 +6,8 @@ import { LeftSidebarComponent } from './components/left-sidebar/left-sidebar.com
 import { LoginComponent } from './components/login/login.component';
 import { CommonModule } from '@angular/common';
 
+import { RouterModule } from '@angular/router';
+
 @NgModule({
   declarations: [
     KanetuComponent,
@@ -16,13 +18,14 @@ import { CommonModule } from '@angular/common';
     ],
   imports: [
     CommonModule,
+    RouterModule
   ],
   exports: [
     KanetuComponent,
     FooterComponent,
     HeaderComponent,
     LeftSidebarComponent,
-    LoginComponent
+    LoginComponent,
   ]
 })
 export class KanetuModule { }
