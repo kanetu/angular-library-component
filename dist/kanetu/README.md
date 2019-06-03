@@ -1,24 +1,125 @@
-# Kanetu
+#Important 
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.0.
+Library using Boostrap 4. You need install yourself
 
-## Code scaffolding
+#Components
 
-Run `ng generate component component-name --project kanetu` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project kanetu`.
-> Note: Don't forget to add `--project kanetu` or else it will be added to the default project in your `angular.json` file. 
+```html
+  <lib-footer></lib-footer>
+  <lib-header></lib-header>
+  <lib-login></lib-login>
+  <lib-left-sidebar></lib-left-sidebar>
+```
 
-## Build
+## @Input HeaderComponent
 
-Run `ng build kanetu` to build the project. The build artifacts will be stored in the `dist/` directory.
+```javascript
+  @Input() logoUrl: string;
+  @Input() avatarUrl: string;
+  @Input() menuNavbar: { name: string, link: string }[];
 
-## Publishing
 
-After building your library with `ng build kanetu`, go to the dist folder `cd dist/kanetu` and run `npm publish`.
+  //Default variable
+  this.logoUrl = 'http://pluspng.com/img-png/bootstrap-logo-png-logo-of-bootstrap-framework-195.png';
+  this.avatarUrl  = 'https://scontent.fsgn5-6.fna.fbcdn.net/v/t1.0-9/45256672_1055358751311056_3609953152255655936_n.jpg?_nc_cat=109&_nc_oc=AQnD_RZXH8Htxh4zaCGKWPJfr7UhWem3o1c7FjSNt79PNUiuONmttuwdFAH_ngZ3iCE&_nc_ht=scontent.fsgn5-6.fna&oh=ff10c22fcd5794366cd1f8fc0a9146e4&oe=5D59E9E0';
 
-## Running unit tests
+  this.menuNavbar = [
+    {name: 'Home', link: '/'},
+    {name: 'About', link: '/about'},
+    {name: 'Contact', link: '/contact'},
+  ];
 
-Run `ng test kanetu` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+## @Input LeftSidebar Component
 
-## Further help
+```javascript
+  @Input() menuSidebar: { name: string, link: string }[];
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+  //Default variable
+  this.menuSidebar = [
+    {name: 'Menu 1', link: '/menu1'},
+    {name: 'Menu 2', link: '/menu2'},
+    {name: 'Menu 3', link: '/menu3'},
+    {name: 'Menu 4', link: '/menu4'},
+  ];
+```
+
+#Usage
+In file app.module.ts
+
+```javascript
+
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppComponent } from './app.component';
+
+//Import kanetu library
+import { KanetuComponent, FooterComponent, HeaderComponent, LoginComponent, LeftSidebarComponent} from 'kanetu';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    KanetuComponent,
+    FooterComponent, // <lib-footer></lib-footer>
+    HeaderComponent, //<lib-header></lib-header>
+    LoginComponent,// <lib-login></lib-login>
+    LeftSidebarComponent // <lib-left-sidebar> </lib-left-sidebar>
+  ],
+  imports: [
+    BrowserModule,
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+```
+
+Declare @Input (app.component.ts)
+
+```javascript
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
+})
+export class AppComponent {
+  title = 'angular01';
+
+  menuSidebar = [
+    {name: 'Hieu', link: '/'},
+  ];
+}
+
+```
+
+In file app.components.html
+
+```html
+
+<div class="container">
+  <lib-header
+  >
+  </lib-header>
+
+  <div class="row">
+
+    <div class="col-3">
+      <lib-left-sidebar
+        [menuSidebar] = 'menuSidebar'
+      >
+      </lib-left-sidebar>
+    </div>
+
+    <div class="col-9">
+        <lib-login></lib-login>
+    </div>
+
+  </div>
+  <lib-footer></lib-footer>
+</div>
+
+```
